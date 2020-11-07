@@ -13,7 +13,7 @@ public class BoardTest {
 	public void initBoardTest() {
 		
 		Board board = new Board();
-		board.initboard();
+		board.initBoard();
 
 		for (int i = 0; i < rows ; i++) {
 			for (int j = 0; j < columns; j++) {
