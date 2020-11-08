@@ -17,7 +17,7 @@ public class Board {
 			for (int j = 0; j < columns; j++) {
 				matrix[i][j] = 0;
 			}
-		}
+		}s
 		
 	}
 	
@@ -27,6 +27,7 @@ public class Board {
 		
 		int[] shipsLeft = {1, 2, 2};
 		
+		
 		for (int k = 0; k <= nShips; k++) {
 			
 			orientation = rand.nextInt(2);
@@ -35,31 +36,38 @@ public class Board {
 				
 				x = rand.nextInt(10);
 				
-				for (int i = x; i < rows - x; i++) {
+				for (int i = x; i < columns - x; i++) {
 					
 					y = rand.nextInt(7);
 					
-					for (int j = y; j < columns - y; j++) {
+					for (int j = y; j < rows - y; j++) {
 						
-						if(getPosition(x, y) == 0 && getPosition(i, j + 1) == 0 && getPosition(i, j + 2) == 0 && getPosition(i ,j + 3) == 0) {
-							
+						if(getPosition(i, j) == 0 && getPosition(i, j + 1) == 0 && getPosition(i, j + 2) == 0 && getPosition(i ,j + 3) == 0) {
+							boolean ship_placed=false;
 							for (int l = 0; l < 3; l++) {
 								
-								if (shipsLeft[l] > 0) {
-									if (l == 0) {
-										for (int m = j; m < j + 3; m++) {
-											matrix[i][m] = 1;
+								if(!ship_placed) 
+								{
+									if (shipsLeft[l] > 0) 
+									{
+										if (l == 0) {
+											for (int m = j; m < j + 3; m++) {
+												matrix[i][m] = 1;
+												ship_placed=true;
+											}
+										}else if (l == 1){
+											for (int m = j; m < j + 2; m++) {
+												matrix[i][m] = 1;
+												ship_placed=true;
+											}
+										}else{
+											for (int m = j; m < j + 1; m++) {
+												matrix[i][m] = 1;
+												ship_placed=true;
+											}
 										}
-									}else if (l == 1){
-										for (int m = j; m < j + 2; m++) {
-											matrix[i][m] = 1;
-										}
-									}else{
-										for (int m = j; m < j + 1; m++) {
-											matrix[i][m] = 1;
-										}
+										shipsLeft[l]--;
 									}
-									shipsLeft[l]--;
 								}
 							}
 						} 
@@ -68,42 +76,51 @@ public class Board {
 				
 			}else { // horizontal (hacia la derecha)
 				
-				x = rand.nextInt(10);
+				y = rand.nextInt(10);
 				
-				for (int i = x; i < rows - x; i++) {
+				for (int i = y; i <  rows - y; i++) {
 					
-					y = rand.nextInt(7);
+					x = rand.nextInt(7);
 					
-					for (int j = y; j < columns - y; j++) {
+					for (int j = x; j <  columns- x; j++) {
 						
-						if(getPosition(x, y) == 0 && getPosition(i, j + 1) == 0 && getPosition(i, j + 2) == 0 && getPosition(i ,j + 3) == 0) {
-							
+						if(getPosition(j, i) == 0 && getPosition(j + 1,i ) == 0 && getPosition(j + 2,i ) == 0 && getPosition(j + 3 ,i) == 0) {
+							boolean ship_placed=false;
 							for (int l = 0; l < 3; l++) {
-								
+								if(!ship_placed) 
+								{
 								if (shipsLeft[l] > 0) {
 									if (l == 0) {
 										for (int m = j; m < j + 3; m++) {
-											matrix[i][m] = 1;
+											matrix[m][i] = 1;
+											ship_placed=true;
 										}
 									}else if (l == 1){
 										for (int m = j; m < j + 2; m++) {
-											matrix[i][m] = 1;
+											matrix[m][i] = 1;
+											ship_placed=true;
 										}
 									}else{
 										for (int m = j; m < j + 1; m++) {
-											matrix[i][m] = 1;
+											matrix[m][i] = 1;
+											ship_placed=true;
 										}
 									}
 									shipsLeft[l]--;
 								}
 							}
+						}
 						} 
 					}
 				}
 			}
 		}
 		
-		
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				System.out.print(matrix[i][j]+" ");;
+			}
+		}
 	}
 
 
