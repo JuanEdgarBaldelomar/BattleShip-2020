@@ -38,6 +38,15 @@ public class Board {
             }
         }
 	}
+	public void printBoard(){
+		for (int i = 0; i < this.matrix.length; i++) {
+            for (int j = 0; j < this.matrix.length; j++) {
+            	//Printar Board
+            }            
+        }
+		
+	}
+	
 		
 	public int getRow() {
 		
