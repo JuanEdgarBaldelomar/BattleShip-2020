@@ -60,6 +60,9 @@ public class Board {
         }
 		return count;
 	}
+	public int getNShip() {
+		return nShips;
+	}
 	
 		
 	public int getRow() {

@@ -42,5 +42,10 @@ class ShooterTest {
 		assertEquals(2, countX);
 		assertEquals(3, countS);
 	}
+	@Test
+	public void getId() {
+		Shooter Player=new Shooter(3);
+		assertEquals(3, Player.getId());
+	}
 
 }

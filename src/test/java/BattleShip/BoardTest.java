@@ -100,4 +100,38 @@ public class BoardTest {
 		assertEquals(8, counter);
 		}
 	}
+	@Test
+	public void getNShipTest() {
+		Board board = new Board(5,5,10);
+		assertEquals(10, board.getNShip());
+
+	}
+	
+	@Test	
+	public void getRowTest() {
+		Board board = new Board(7,5,6);
+		assertEquals(7, board.getRow());
+	}
+	@Test
+	public void getColTest() {
+		Board board = new Board(5,4,2);
+		assertEquals(4, board.getCol());
+	}	
+	@Test
+	public void getPositionTest() {
+		Board board = new Board(5,5,5);
+		board.matrix[1][1]='X';
+		assertEquals('X', board.getPosition(1,1));
+		
+	}
+	@Test
+	public void setPositionTest() {
+		Board board = new Board(5,5,5);
+		board.matrix[1][3]='S';
+		assertEquals('S', board.getPosition(1,3));
+		board.setPosition(1, 3, 'X');
+		assertEquals('X', board.getPosition(1,3));
+	}
+	
+	
 }
