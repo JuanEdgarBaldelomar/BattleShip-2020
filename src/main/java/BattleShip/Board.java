@@ -75,5 +75,8 @@ public class Board {
 	public int getPosition(int x, int y) {
 		return matrix[x][y];	
 	}
+	public void setPosition(int x, int y,char c) {
+		matrix[x][y]=c;
+	}
 	
 }
