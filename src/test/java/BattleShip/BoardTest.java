@@ -66,4 +66,5 @@ public class BoardTest {
 		assertEquals(25, counter);
 	}
 
+	}
 }

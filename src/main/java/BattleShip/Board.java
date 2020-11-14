@@ -41,8 +41,13 @@ public class Board {
 	public void printBoard(){
 		for (int i = 0; i < this.matrix.length; i++) {
             for (int j = 0; j < this.matrix.length; j++) {
-            	//Printar Board
-            }            
+            	if(this.matrix[i][j]!='S') {
+            		System.out.print(this.matrix[i][j]+" ");
+            	}else {
+            		System.out.print('-'+" ");
+            	} 
+            }
+            System.out.println();
         }
 		
 	}
