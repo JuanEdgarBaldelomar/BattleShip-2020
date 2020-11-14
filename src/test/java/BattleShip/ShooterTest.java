@@ -8,6 +8,22 @@ import org.junit.jupiter.api.Test;
 class ShooterTest {
 
 	@Test
+	public void Shot(){
+		Board board = new Board(5,5,5);
+		board.initBoard();
+		int n_ship;
+		//Board amb 2 Ship
+		board.matrix[1][1]='S';
+		board.matrix[3][3]='S';
+		n_ship=board.countShip();
+		assertTrue(n_ship==0);
+		//Board amb 0 Ship
+		n_ship=board.countShip();
+		assertTrue(n_ship==0);
+	}
+	
+	
+	@Test
 	void getCoordinatesTest() {
 		int countO=0,countX=0,countS=0;
 		

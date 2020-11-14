@@ -8,13 +8,21 @@ public class Shooter {
 	private int y=0;
 	private int id;
 	boolean shooted;
+	
 	public Shooter(int id) {
 		this.id=id;
 	}	
+	
+	
+	public boolean Shot(Board board,int id){
 		
-/*Controla El turno del Player y CPU, obteniendo coordenadas
+		//Hace el turno del jugador y comprueba si gana
+		return false;
+	}
+		
+	/*Controla El turno del Player y CPU, obteniendo coordenadas
 	por teclado y random y actualiza el board*/	
-public void getCoordinates(Board board,int id) {
+	public void getCoordinates(Board board,int id) {
         
     	if(this.id==1) {
     		do {
