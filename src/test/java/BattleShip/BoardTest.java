@@ -6,41 +6,40 @@ import org.junit.Test;
 
 public class BoardTest {
 
-	public static int rows = 10;
-	public static int columns = 10;
+	
 	
 	@Test
 	public void initBoardTest() {
 		
-		Board board = new Board();
+		Board board = new Board(5,5,5);
 		board.initBoard();
 
-		for (int i = 0; i < rows ; i++) {
-			for (int j = 0; j < columns; j++) {
-				assertEquals(0,board.getPosition(i,j));
+		for (int i = 0; i < board.getRow() ; i++) {
+			for (int j = 0; j < board.getCol(); j++) {
+				assertEquals('-',board.getPosition(i,j));
 			}
 		}
 	}
 	/*
 	 * Test para comprobar que los barcos estan dentro de la matriz.
-	 * La suma de las longitudes de los barcos es 14.
+	 * La suma de las longitudes de los barcos es 5.
 	 * */
 	@Test
 	public void shipPositionTest() {
 		
-		Board board = new Board();
+		Board board = new Board(5,5,5);
 		board.initBoard();
-		board.shipPosition();
+		board.setShip();
 		int counter = 0;
 		
-		for (int i = 0; i < rows ; i++) {
-			for (int j = 0; j < columns; j++) {
-				if (board.matrix[i][j] == '!') {
+		for (int i = 0; i < board.getRow() ; i++) {
+			for (int j = 0; j < board.getCol(); j++) {
+				if (board.matrix[i][j] == 'S') {
 					counter++;
 				}
 			}
 		}
-		assertEquals(14, counter);
+		assertEquals(5, counter);
 	}
 
 }
