@@ -45,6 +45,7 @@ public class BoardTest {
 	/*Test que comprueba que no se queda ningún espacio vacio al printar.
 	 Comparamos que todas las posiciones (5*5) tienen un char valido
 	 que printar*/
+	@Test
 	public void printBoardTest() {
 		Board board = new Board(5,5,5);
 		board.initBoard();
@@ -66,5 +67,37 @@ public class BoardTest {
 		assertEquals(25, counter);
 	}
 
+	}
+	/*Test que comprueba el número de barcos restantes que inicializamos*/
+	@Test
+	public void countShipTest() {
+		Board board = new Board(5,5,10);
+		board.initBoard();
+		board.setShip();
+		int counter = 0;
+		for (int i = 0; i < board.getRow() ; i++) {
+			for (int j = 0; j < board.getCol(); j++) {
+				if (board.matrix[i][j] == 'S') {
+					counter++;
+				}
+			}
+		}
+		assertEquals(10, counter);
+		//Situación de hundimiento de 2 barcos
+		for (int i = 0; i < 2 ; i++) {
+			for (int j = 0; j < 2; j++) {
+				if (board.matrix[i][j] == 'S') {
+					board.matrix[i][j]='X';
+				}
+			}
+		}
+		for (int i = 0; i < board.getRow() ; i++) {
+			for (int j = 0; j < board.getCol(); j++) {
+				if (board.matrix[i][j] == 'S') {
+					counter++;
+				}
+			}
+		assertEquals(8, counter);
+		}
 	}
 }

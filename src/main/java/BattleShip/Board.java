@@ -51,6 +51,10 @@ public class Board {
         }
 		
 	}
+	public int countShip() {
+		//Contar Ships Restantes
+		return 0;
+	}
 	
 		
 	public int getRow() {
