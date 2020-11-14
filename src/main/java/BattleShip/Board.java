@@ -29,7 +29,7 @@ public class Board {
         Random rand = new Random();
         int cont = 0;
 
-        while (cont < nShips) {
+        while (cont < getNShip()) {
             x = rand.nextInt(row);
             y = rand.nextInt(col);
             if (matrix[x][y] == '-') {
