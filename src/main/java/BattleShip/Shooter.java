@@ -14,10 +14,18 @@ public class Shooter {
 	}	
 	
 	
+	//Hace el turno del jugador y comprueba si gana
 	public boolean Shot(Board board,int id){
+		boolean win=false;
+				
+		getCoordinates(board,id);
 		
-		//Hace el turno del jugador y comprueba si gana
-		return false;
+		if(board.countShip()==0)
+		{
+			win=true;
+		}
+		
+		return win;
 	}
 		
 	/*Controla El turno del Player y CPU, obteniendo coordenadas
@@ -45,13 +53,16 @@ public class Shooter {
                         board.setPosition(x, y, 'O'); 
                         System.out.println("Has fallado...");
                         shooted=true;
+                        board.printBoard();
                     }else if(board.getPosition(x,y) == 'S') {
                     	board.setPosition(x, y, 'X');
                         System.out.println("¡¡Le has dado!!");
                         shooted=true;
+                        board.printBoard();
                     }else {
                         System.out.println("Ya has disparado aquí...");
                         shooted=true;
+                        board.printBoard();
                     }
                 	
                 }
@@ -59,7 +70,7 @@ public class Shooter {
                 	System.out.println("Error.Introducir un número del 1 al 5.");
                 	shooted=false;
                 }
-                board.printBoard();
+                
     		}while(!shooted);
     		
     	}else if (this.id==2 ) {
