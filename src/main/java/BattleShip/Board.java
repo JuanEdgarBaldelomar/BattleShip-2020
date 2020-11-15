@@ -30,25 +30,25 @@ public class Board {
         int cont = 0;
 
         while (cont < getNShip()) {
-            x = rand.nextInt(row);
-            y = rand.nextInt(col);
-            if (matrix[x][y] == '-') {
-                matrix[x][y] = 'S';
+            x = rand.nextInt(this.getRow());
+            y = rand.nextInt(this.getCol());
+            if (this.getPosition(x, y) == '-') {
+            	this.setPosition(x, y, 'S');
                 cont++;
             }
         }
 	}
 	public void printBoard(){
 		System.out.print("  ");
-		for (int c = 0; c < this.matrix.length; c++) {
+		for (int c = 0; c < this.getRow(); c++) {
 			System.out.print((c+1)+" ");
 		}
 		System.out.println();
-		for (int i = 0; i < this.matrix.length; i++) {
+		for (int i = 0; i < this.getRow(); i++) {
 			System.out.print((i+1) + " ");
-            for (int j = 0; j < this.matrix.length; j++) {
-            	if(this.matrix[i][j]!='S') {
-            		System.out.print(this.matrix[i][j]+" ");
+            for (int j = 0; j < this.getCol(); j++) {
+            	if(this.getPosition(i, j) !='S') {
+            		System.out.print(this.getPosition(i, j)+" ");
             	}else {
             		System.out.print('-'+" ");
             	} 
@@ -60,9 +60,9 @@ public class Board {
 	}
 	public int countShip() {
 		int count=0;
-		for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                if(matrix[i][j]=='S') {count++;}
+		for (int i = 0; i < this.getRow(); i++) {
+            for (int j = 0; j < this.getCol(); j++) {
+                if(this.getPosition(i, j)=='S') {count++;}
             }
         }
 		return count;
@@ -82,7 +82,7 @@ public class Board {
 		return this.col;
 	}	
 
-	public int getPosition(int x, int y) {
+	public char getPosition(int x, int y) {
 		return matrix[x][y];	
 	}
 	public void setPosition(int x, int y,char c) {

@@ -17,7 +17,7 @@ public class Game {
 		boardCPU.setShip();
 		
 		board.printBoard();
-		System.out.println("-----------------");
+		System.out.println("-------------");
 		boardCPU.printBoard();
 
 		while(!winPlayer && !winCPU)

@@ -55,11 +55,11 @@ class ShooterTest {
 		
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {
-				if(board.matrix[i][j]=='O') {
+				if(board.getPosition(i,j)=='O') {
 					countO++;
-				}else if(board.matrix[i][j]=='X'){
+				}else if(board.getPosition(i,j)=='X'){
 					countX++;
-				}else if(board.matrix[i][j]=='S'){
+				}else if(board.getPosition(i,j)=='S'){
 					countS++;
 				}
 			}

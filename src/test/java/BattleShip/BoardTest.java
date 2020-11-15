@@ -35,7 +35,7 @@ public class BoardTest {
 		
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {
-				if (board.matrix[i][j] == 'S') {
+				if (board.getPosition(i,j) == 'S') {
 					counter++;
 				}
 			}
@@ -64,7 +64,7 @@ public class BoardTest {
 
 		for (int i = 0; i < board.getRow(); i++) {
 			for (int j = 0; j < board.getCol(); j++) {
-				if (board.matrix[i][j] != ' ') {
+				if (board.getPosition(i,j) != ' ') {
 					counter++;
 					System.out.println(counter);
 				}
@@ -89,7 +89,7 @@ public class BoardTest {
 		int counter = 0;
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {
-				if (board.matrix[i][j] == 'S') {
+				if (board.getPosition(i,j) == 'S') {
 					counter++;
 				}
 			}
@@ -107,7 +107,7 @@ public class BoardTest {
 		
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {
-				if (board.matrix[i][j] == 'S') {
+				if (board.getPosition(i,j) == 'S') {
 					counter++;
 				}
 			}
