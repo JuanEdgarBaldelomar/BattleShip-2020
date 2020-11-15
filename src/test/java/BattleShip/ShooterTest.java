@@ -15,14 +15,18 @@ class ShooterTest {
 		board.initBoard();
 		int n_ship;
 		//Board amb 2 Ship
-		board.matrix[1][1]='S';
-		board.matrix[3][3]='S';
+		//Inicializar barcos desde el MockObject de Board.
+
+		MockBoard mboard = new MockBoard(5, 5, 5);
+		mboard.inicializarBarcos2(board);
 		n_ship=board.countShip();
 		assertFalse(n_ship == 0);
 		
 		//Board amb 0 Ship
-		board.matrix[1][1]='X';
-		board.matrix[3][3]='X';
+		//Simular disparos desde el MockObject de Shooter.
+		
+		MockShooter shot = new MockShooter(1);
+		shot.modShips2(board);
 		n_ship=board.countShip();
 		assertTrue(n_ship == 0);
 	}
@@ -38,18 +42,16 @@ class ShooterTest {
 	
 		Board board = new Board(5,5,5);
 		board.initBoard();
-		//setShip
-		board.matrix[1][1]='S';
-		board.matrix[3][3]='S';
-		board.matrix[2][4]='S';
-		board.matrix[1][2]='S';
-		board.matrix[2][2]='S';
 		
-		//Turno
-		board.matrix[0][0] ='O';
-		board.matrix[3][4] ='O';
-		board.matrix[1][1] ='X';
-		board.matrix[2][2] ='X';
+		//Inicializar barcos desde el MockObject de Board.
+
+		MockBoard mboard = new MockBoard(5, 5, 5);
+		mboard.inicializarBarcos1(board);
+		
+		//Simular disparos desde el MockObject de Shooter.
+		
+		MockShooter shot = new MockShooter(1);
+		shot.modShips1(board);
 		
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {

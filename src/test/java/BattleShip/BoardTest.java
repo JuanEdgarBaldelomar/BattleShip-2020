@@ -52,12 +52,15 @@ public class BoardTest {
 		Board board = new Board(5,5,5);
 		board.initBoard();
 		int counter = 0;
-		board.matrix[1][1]='S';
-		board.matrix[3][3]='S';
-		board.matrix[2][4]='X';
-		board.matrix[1][2]='X';
-		board.matrix[3][4]='O';
-		board.matrix[2][0]='O';
+		
+		//Inicializar barcos desde el MockObject de Board.
+		MockBoard mboard = new MockBoard(5, 5, 5);
+		mboard.inicializarBarcos2(board);
+		
+		//Simular disparos desde el MockObject de Shooter.
+		
+		MockShooter shot = new MockShooter(1);
+		shot.modShips1(board);
 
 		for (int i = 0; i < board.getRow(); i++) {
 			for (int j = 0; j < board.getCol(); j++) {
@@ -68,7 +71,7 @@ public class BoardTest {
 			}
 		}
 		System.out.println(counter);
-		assertEquals(25, counter);	
+		assertEquals(25, counter);
 	}
 	/*
 	 * Test que comprueba el número de barcos restantes que inicializamos
@@ -77,16 +80,12 @@ public class BoardTest {
 	public void countShipTest() {
 		Board board = new Board(5,5,10);
 		board.initBoard();
-		board.matrix[2][4]='S';
-		board.matrix[1][2]='S';
-		board.matrix[3][4]='S';
-		board.matrix[2][0]='S';
-		board.matrix[1][1]='S';
-		board.matrix[3][3]='S';
-		board.matrix[4][4]='S';
-		board.matrix[2][2]='S';
-		board.matrix[3][1]='S';
-		board.matrix[2][3]='S';
+		
+		//Inicializar barcos desde el MockObject de Board.
+
+		MockBoard mboard = new MockBoard(5, 5, 10);
+		mboard.inicializarBarcos3(board);
+		
 		int counter = 0;
 		for (int i = 0; i < board.getRow() ; i++) {
 			for (int j = 0; j < board.getCol(); j++) {
@@ -99,8 +98,10 @@ public class BoardTest {
 		
 		//Situación de hundimiento de 2 barcos
 		
-		board.matrix[3][1]='X';
-		board.matrix[2][3]='X';
+		//Simular disparos desde el MockObject de Shooter.
+		
+		MockShooter shot = new MockShooter(1);
+		shot.modShips3(board);
 		
 		counter=0;
 		
