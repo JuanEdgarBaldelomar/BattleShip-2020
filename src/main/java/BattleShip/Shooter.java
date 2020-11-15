@@ -3,18 +3,33 @@ package BattleShip;
 import java.util.Scanner;
 import java.util.Random;
 
+/**
+ * @author Ferran Bayona Castellà - 1390131
+ * @author Marcos Alessandro Mena Pérez - 1460748
+ * */
+
+
 public class Shooter {
 	private int x=0;
 	private int y=0;
 	private int id;
 	boolean shooted;
 	
+	/**
+	 * Constructor de la clase Shooter.java
+	 * @param id
+	 */
 	public Shooter(int id) {
 		this.id=id;
 	}	
 	
-	
-	//Hace el turno del jugador y comprueba si gana
+	/**
+	 * Método que llama a getCoordinates para realizar un turno y nos 
+	 * retorna un booleano para comprobar si hemos ganado la partida.
+	 * @param board
+	 * @param id
+	 * @return win
+	 */
 	public boolean Shot(Board board,int id){
 		boolean win=false;
 				
@@ -28,8 +43,13 @@ public class Shooter {
 		return win;
 	}
 		
-	/*Controla El turno del Player y CPU, obteniendo coordenadas
-	por teclado y random y actualiza el board*/	
+	/**
+	 * Realiza y controla el turno del Player obteniendo las coordenadas 
+	 * por teclado y el turno de la CPU generando coordenadas aleatorias.
+	 * Actualiza ambos tableros de juego.
+	 * @param board
+	 * @param id
+	 */
 	public void getCoordinates(Board board,int id) {
         
     	if(this.id==1) {
@@ -97,8 +117,12 @@ public class Shooter {
     	}
 
     }
-	public int getId() {
-		
+	
+	/**
+	 * Devuelve el ID del jugador. Player o CPU
+	 * @return id
+	 */
+	public int getId() {	
 		return this.id;
 	}
 }

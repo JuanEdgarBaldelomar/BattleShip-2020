@@ -2,19 +2,33 @@ package BattleShip;
 
 import java.util.Random;
 
+/**
+ * @author Ferran Bayona Castellà - 1390131
+ * @author Marcos Alessandro Mena Pérez - 1460748
+ * */
+
+
 public class Board {
 	public int nShips;
 	private int row;
 	private int col;
 	protected char[][] matrix = new char[5][5];
-	
-	public Board(int row,int col,int nShips)
-	{
+
+	/**
+	 * Constructor de la clase Board
+	 * @param row
+	 * @param col
+	 * @param nShips
+	 */
+	public Board(int row,int col,int nShips){
 		this.row=row;
 		this.col=col;
 		this.nShips=nShips;
-	
 	}
+	
+	/**
+	 * Inicializa la matriz de juego con '-' en todas las posiciones.
+	 */
 	public void initBoard() {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
@@ -24,6 +38,10 @@ public class Board {
 		
 	}
 	
+	/**
+	 * Colocamos n barcos de forma aleatoria por la matriz de juego.
+	 * Cambiamos el valor '-' por 'S'.
+	 */
 	public void setShip() {
 		int x,y=0;
         Random rand = new Random();
@@ -38,6 +56,11 @@ public class Board {
             }
         }
 	}
+	
+	/**
+	 * Imprimimos por pantalla la matriz de juego ocultando los barcos
+	 * que se muestren en la matriz de juego.
+	 */
 	public void printBoard(){
 		System.out.print("  ");
 		for (int c = 0; c < this.getRow(); c++) {
@@ -53,11 +76,16 @@ public class Board {
             		System.out.print('-'+" ");
             	} 
             }
-            
             System.out.println();
         }
 		
 	}
+	
+	/**
+	 * Contamos el número de barcos restantes en la matriz de juego
+	 * y devolvemos el valor.
+	 * @return count
+	 */
 	public int countShip() {
 		int count=0;
 		for (int i = 0; i < this.getRow(); i++) {
@@ -67,24 +95,47 @@ public class Board {
         }
 		return count;
 	}
+	
+	/**
+	 * Devuelve el número de barcos de la matriz de juego.
+	 * @return nShips
+	 */
 	public int getNShip() {
 		return nShips;
 	}
 	
-		
+	/**
+	 * Devuelve el número de filas de la matriz de juego.
+	 * @return row
+	 */
 	public int getRow() {
-		
 		return this.row;
 	}
-
-	public int getCol() {
 	
+	/**
+	 * Devuelve el número de columnas de la matriz de juego.
+	 * @return col
+	 */
+	public int getCol() {
 		return this.col;
-	}	
-
+	}
+	
+	/**
+	 * Devuelve el número de filas de la matriz de juego.
+	 * @param x
+	 * @param y
+	 * @return valor de la coordenada de la matriz de juego.
+	 */
 	public char getPosition(int x, int y) {
 		return matrix[x][y];	
 	}
+	
+	/**
+	 * Inserta un valor en la coordenada de la matriz de juego.
+	 * @param x
+	 * @param y
+	 * @param c
+	 */
 	public void setPosition(int x, int y,char c) {
 		matrix[x][y]=c;
 	}

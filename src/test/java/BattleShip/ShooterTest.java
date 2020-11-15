@@ -1,14 +1,22 @@
 package BattleShip;
 
+//import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.*;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+/**
+ * @author Ferran Bayona Castellà - 1390131
+ * @author Marcos Alessandro Mena Pérez - 1460748
+ * */
+
 
 class ShooterTest {
 
-	/*
+	/**
 	 * Test que comprueba si el número de barcos no tocados en el tablero es 0.
-	 * */
+	 */
 	@Test
 	public void ShotTest(){
 		Board board = new Board(5,5,5);
@@ -32,10 +40,10 @@ class ShooterTest {
 	}
 	
 	
-	/*
+	/**
 	 * Test que comprueba que los cambios producidos en la matriz se realizan correctamente. 
 	 * Se ha realizado también valors límit y forntera y particiones equivalentes.
-	 * */
+	 */
 	@Test
 	void getCoordinatesTest() {
 		int countO=0,countX=0,countS=0,x=0,y=0;
@@ -147,9 +155,9 @@ class ShooterTest {
 	
 	}
 	
-	/*
+	/**
 	 * Test que comprueba el getter de ID.
-	 * */
+	 */
 	@Test
 	public void getIdTest() {
 		Shooter Player=new Shooter(3);

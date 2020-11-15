@@ -1,8 +1,18 @@
 package BattleShip;
 
+/**
+ * @author Ferran Bayona Castellà - 1390131
+ * @author Marcos Alessandro Mena Pérez - 1460748
+ * */
+
 
 public class Game {
-
+	
+	/**
+	 * Método donde se ejecuta el juego.
+	 * Muestra por pantalla si hemos ganado o perdido la partida.
+	 * @param args
+	 */
 	public static void main(String[] args){
 		boolean winPlayer=false;
 		boolean winCPU=false;
@@ -20,14 +30,13 @@ public class Game {
 		System.out.println("-------------");
 		boardCPU.printBoard();
 
-		while(!winPlayer && !winCPU)
-		{
-				winPlayer=Player.Shot(board,Player.getId());
+		while(!winPlayer && !winCPU){
+				
+			winPlayer=Player.Shot(board,Player.getId());
 
-				winCPU=CPU.Shot(boardCPU,CPU.getId());
+			winCPU=CPU.Shot(boardCPU,CPU.getId());
 		}
-		if(winPlayer)
-		{
+		if(winPlayer){
 			System.out.print("HAS GANADO");
 		}else if (winCPU){
 			System.out.print("HAS PERDIDO");
