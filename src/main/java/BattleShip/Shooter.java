@@ -74,13 +74,13 @@ public class Shooter {
     		}while(!shooted);
     		
     	}else if (this.id==2 ) {
-    		//TORN CPU
+    		//TURNO CPU
             System.out.println("TURNO CPU: ");
             Random rand = new Random();
             x = rand.nextInt(board.getRow());
             y = rand.nextInt(board.getCol());
             
-            System.out.println("CPU ha disparado en: "+x+" "+y);
+            System.out.println("CPU ha disparado en: "+(x+1)+" "+(y+1));
             
             if (board.getPosition(x,y) == '-') {
                 board.setPosition(x, y, 'O'); ;

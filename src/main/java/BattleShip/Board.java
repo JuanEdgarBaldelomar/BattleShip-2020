@@ -39,7 +39,13 @@ public class Board {
         }
 	}
 	public void printBoard(){
+		System.out.print("  ");
+		for (int c = 0; c < this.matrix.length; c++) {
+			System.out.print((c+1)+" ");
+		}
+		System.out.println();
 		for (int i = 0; i < this.matrix.length; i++) {
+			System.out.print((i+1) + " ");
             for (int j = 0; j < this.matrix.length; j++) {
             	if(this.matrix[i][j]!='S') {
             		System.out.print(this.matrix[i][j]+" ");
@@ -47,6 +53,7 @@ public class Board {
             		System.out.print('-'+" ");
             	} 
             }
+            
             System.out.println();
         }
 		
