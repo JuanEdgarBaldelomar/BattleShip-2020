@@ -76,43 +76,43 @@ class ShooterTest {
 		assertEquals(2, countX);
 		assertEquals(3, countS);
 		
-		//Valores límite. El jugador introduce las coordenadas x = 1, y = 1.
+		//Valores frontera. El jugador introduce las coordenadas x = 1, y = 1.
 		x = 1;y = 1;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores límite en matriz 5x5. El jugador introduce las coordenadas x = 5, y = 5.
+		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 5, y = 5.
 		x = 5;y = 5;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 0, y = 1.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 0, y = 1.
 		x = 0;y = 1;
 		assertEquals(false, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 1, y = 0.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 1, y = 0.
 		x = 1;y = 0;
 		assertEquals(false, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 6, y = 5.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 6, y = 5.
 		x = 6;y = 5;
 		assertEquals(false, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 5, y = 6.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 5, y = 6.
 		x = 5;y = 6;
 		assertEquals(false, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 2, y = 3.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 2, y = 3.
 		x = 2;y = 3;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 3, y = 2.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 3, y = 2.
 		x = 3;y = 2;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 4, y = 3.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 4, y = 3.
 		x = 4;y = 3;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 				
-		//Valores frontera en matriz 5x5. El jugador introduce las coordenadas x = 3, y = 4.
+		//Valores limite en matriz 5x5. El jugador introduce las coordenadas x = 3, y = 4.
 		x = 3;y = 4;
 		assertEquals(true, (x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1));
 		

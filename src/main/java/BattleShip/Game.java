@@ -38,8 +38,7 @@ public class Game {
 		}
 		if(winPlayer){
 			System.out.print("HAS GANADO");
-		}else if (winCPU){
+		}else 
 			System.out.print("HAS PERDIDO");
-			}
 		}
 }
