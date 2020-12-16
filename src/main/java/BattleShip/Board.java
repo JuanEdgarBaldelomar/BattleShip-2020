@@ -3,8 +3,8 @@ package BattleShip;
 import java.util.Random;
 
 /**
- * @author Ferran Bayona Castellà - 1390131
- * @author Marcos Alessandro Mena Pérez - 1460748
+ * @author Ferran Bayona Castellï¿½ - 1390131
+ * @author Marcos Alessandro Mena Pï¿½rez - 1460748
  * */
 
 
@@ -24,6 +24,16 @@ public class Board {
 		this.row=row;
 		this.col=col;
 		this.nShips=nShips;
+	}
+	
+	public void setMockBoard(char[][] mockBoard) {
+		matrix = mockBoard;
+	}
+	
+	public char[][] getBoard(){
+		
+		return this.matrix;
+		
 	}
 	
 	/**
@@ -82,7 +92,7 @@ public class Board {
 	}
 	
 	/**
-	 * Contamos el número de barcos restantes en la matriz de juego
+	 * Contamos el nï¿½mero de barcos restantes en la matriz de juego
 	 * y devolvemos el valor.
 	 * @return count
 	 */
@@ -97,7 +107,7 @@ public class Board {
 	}
 	
 	/**
-	 * Devuelve el número de barcos de la matriz de juego.
+	 * Devuelve el nï¿½mero de barcos de la matriz de juego.
 	 * @return nShips
 	 */
 	public int getNShip() {
@@ -105,7 +115,7 @@ public class Board {
 	}
 	
 	/**
-	 * Devuelve el número de filas de la matriz de juego.
+	 * Devuelve el nï¿½mero de filas de la matriz de juego.
 	 * @return row
 	 */
 	public int getRow() {
@@ -113,7 +123,7 @@ public class Board {
 	}
 	
 	/**
-	 * Devuelve el número de columnas de la matriz de juego.
+	 * Devuelve el nï¿½mero de columnas de la matriz de juego.
 	 * @return col
 	 */
 	public int getCol() {
@@ -121,7 +131,7 @@ public class Board {
 	}
 	
 	/**
-	 * Devuelve el número de filas de la matriz de juego.
+	 * Devuelve el nï¿½mero de filas de la matriz de juego.
 	 * @param x
 	 * @param y
 	 * @return valor de la coordenada de la matriz de juego.

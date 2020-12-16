@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 /**
- * @author Ferran Bayona Castellà - 1390131
- * @author Marcos Alessandro Mena Pérez - 1460748
+ * @author Ferran Bayona Castellï¿½ - 1390131
+ * @author Marcos Alessandro Mena Pï¿½rez - 1460748
  * */
 
 
@@ -23,13 +23,97 @@ public class Shooter {
 		this.id=id;
 	}	
 	
+	
+	public boolean Shot(Board board,int id, int x, int y){
+		boolean win=false;
+				
+		getCoordinates(board,id, x, y);
+		
+		if(board.countShip()==0)
+		{
+			win=true;
+		}
+		
+		return win;
+	}
+		
+	
+	public void getCoordinates(Board board,int id, int x, int y) {
+        
+    	if(this.id==1) {
+    		do {
+    			/*Scanner scan = new Scanner(System.in);
+            	
+            	
+            	System.out.println("TU TURNO: ");
+            	System.out.println("Pon la coordenada x: ");
+                if(scan.hasNextInt() ) {x = scan.nextInt();}
+                	//scan.nextLine();
+                System.out.println("Pon la coordenada y: ");
+                if(scan.hasNextInt() ) {y = scan.nextInt();}
+                //scan.nextLine();*/
+            	
+                if(x>0 && y>0 && x<board.getRow()+1 && y<board.getCol()+1) 
+                {
+                	x--;
+                	y--;
+                	if (board.getPosition(x,y) == '-') {
+                        board.setPosition(x, y, 'O'); 
+                        System.out.println("Has fallado...");
+                        shooted=true;
+                        board.printBoard();
+                    }else if(board.getPosition(x,y) == 'S') {
+                    	board.setPosition(x, y, 'X');
+                        System.out.println("ï¿½ï¿½Le has dado!!");
+                        shooted=true;
+                        board.printBoard();
+                    }else {
+                        System.out.println("Ya has disparado aquï¿½...");
+                        shooted=true;
+                        board.printBoard();
+                    }
+                	
+                }
+                else {
+                	System.out.println("Error.Introducir un nï¿½mero del 1 al 5.");
+                	shooted=false;
+                }
+                
+    		}while(!shooted);
+    		
+    	}else if (this.id==2 ) {
+    		//TURNO CPU
+            System.out.println("TURNO CPU: ");
+            Random rand = new Random();
+           // x = rand.nextInt(board.getRow());
+            //y = rand.nextInt(board.getCol());
+            
+            System.out.println("CPU ha disparado en: "+(x+1)+" "+(y+1));
+            
+            if (board.getPosition(x,y) == '-') {
+                board.setPosition(x, y, 'O'); ;
+                System.out.println("CPU ha fallado...");
+            }else if(board.getPosition(x,y) == 'S') {
+            	board.setPosition(x, y, 'X');
+                System.out.println("ï¿½ï¿½CPU le ha dado!!");
+            }else {
+                System.out.println("CPU ya habia disparado aquï¿½...");
+            }
+           
+            board.printBoard();
+    		
+    	}
+
+    }
+	
 	/**
-	 * Método que llama a getCoordinates para realizar un turno y nos 
+	 * Mï¿½todo que llama a getCoordinates para realizar un turno y nos 
 	 * retorna un booleano para comprobar si hemos ganado la partida.
 	 * @param board
 	 * @param id
 	 * @return win
 	 */
+	
 	public boolean Shot(Board board,int id){
 		boolean win=false;
 				
@@ -42,7 +126,7 @@ public class Shooter {
 		
 		return win;
 	}
-		
+	
 	/**
 	 * Realiza y controla el turno del Player obteniendo las coordenadas 
 	 * por teclado y el turno de la CPU generando coordenadas aleatorias.
@@ -50,6 +134,7 @@ public class Shooter {
 	 * @param board
 	 * @param id
 	 */
+	
 	public void getCoordinates(Board board,int id) {
         
     	if(this.id==1) {
@@ -76,18 +161,18 @@ public class Shooter {
                         board.printBoard();
                     }else if(board.getPosition(x,y) == 'S') {
                     	board.setPosition(x, y, 'X');
-                        System.out.println("¡¡Le has dado!!");
+                        System.out.println("Â¡Â¡Le has dado!!");
                         shooted=true;
                         board.printBoard();
                     }else {
-                        System.out.println("Ya has disparado aquí...");
+                        System.out.println("Ya has disparado aquÃ­...");
                         shooted=true;
                         board.printBoard();
                     }
                 	
                 }
                 else {
-                	System.out.println("Error.Introducir un número del 1 al 5.");
+                	System.out.println("Error.Introducir un nÃºmero del 1 al 5.");
                 	shooted=false;
                 }
                 
@@ -107,9 +192,9 @@ public class Shooter {
                 System.out.println("CPU ha fallado...");
             }else if(board.getPosition(x,y) == 'S') {
             	board.setPosition(x, y, 'X');
-                System.out.println("¡¡CPU le ha dado!!");
+                System.out.println("Â¡Â¡CPU le ha dado!!");
             }else {
-                System.out.println("CPU ya habia disparado aquí...");
+                System.out.println("CPU ya habia disparado aquÃ­...");
             }
            
             board.printBoard();

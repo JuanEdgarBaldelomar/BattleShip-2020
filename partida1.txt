@@ -1,0 +1,11 @@
+game1,d,d,d
+1,1,4
+5,1,3
+1,5,2
+5,5,1
+3,3,0
+true,false
+cpugame2,d,d,d
+1,2,0
+false,true
+game3,d,d,d
