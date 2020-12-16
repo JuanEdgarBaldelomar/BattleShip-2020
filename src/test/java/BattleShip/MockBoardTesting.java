@@ -47,19 +47,11 @@ public class MockBoardTesting {
 		char[][] mockBoard = new char[5][5];
 		mockBoard = board;
 		
-		//tc05 quitar las lineas 5 y 6 porque tenemos solo 4 datasets, creo que se tiene que corregir todo el tc para que haya una 
-		//con el codigo
-		
-		//Dataset 1,2
-		//Dataset 2,5
-		
-		
-		mockBoard[0][1] = 'S';
-		mockBoard[1][4] = 'S';
-		
+		mockBoard[4][0] = 'S';
+		mockBoard[3][0] = 'S';
+		mockBoard[2][0] = 'S';
+		mockBoard[1][0] = 'S';
 		mockBoard[0][0] = 'S';
-		mockBoard[4][4] = 'S';
-		mockBoard[0][4] = 'S';
 		
 		return mockBoard;
 	}
@@ -84,8 +76,10 @@ public class MockBoardTesting {
 		mockBoard = board;
 		
 		mockBoard[4][0] = 'S';
-		mockBoard[2][3] = 'S';
-		mockBoard[0][4] = 'S';
+		mockBoard[3][0] = 'S';
+		mockBoard[2][0] = 'S';
+		mockBoard[1][0] = 'S';
+		mockBoard[0][0] = 'S';
 		
 		return mockBoard;
 		

@@ -3,6 +3,7 @@ package BattleShip;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,12 +19,16 @@ public class AutomatedTestingGame {
 	
 	Board gameBoardCPU;
 	Board gameBoardUser;
+	Board emptyBoard;
+	Board boardToTest;
+	Board boardBoatsAlive;
+	
 	Shooter user;
 	Shooter cpu;
 	
 	boolean winUser;
 	boolean winCPU;
-	Board emptyBoard;
+	
 	
 	MockBoardTesting mockBoardCPU;
 	MockBoardTesting mockBoardUSER;
@@ -42,6 +47,13 @@ public class AutomatedTestingGame {
 		
 		gameBoardCPU = new Board(5,5,5);
 		gameBoardCPU.initBoard();
+		
+		boardToTest = new Board(5, 5, 5);
+		boardToTest.initBoard();
+		
+		boardBoatsAlive = new Board(5, 5, 5);
+		boardBoatsAlive.initBoard();
+		
 		
 		gameBoardUser = new Board(5, 5, 5);
 		gameBoardUser.initBoard();
@@ -202,6 +214,86 @@ public class AutomatedTestingGame {
 				
 		
 	}
+	
+	@Test
+	public void boatsAlive()  {
+		
+		char [][] table = new char[5][5];
+		table = boardToTest.getBoard();
+		
+		boardToTest.setMockBoard(mockBoardCPU.getMockBoardBoatsAliveCpu(table));
+		ArrayList<Integer> nShips = new ArrayList<Integer>();
+		
+		
+		try {
+			
+			BufferedReader reader = new BufferedReader( new FileReader("../barcosCpuVivos.txt"));
+			String line = reader.readLine();
+			while(line != null) {
+				
+				nShips.add(Integer.parseInt(line));	
+				line = reader.readLine();
+			}
+		
+			reader.close();
+		}catch (IOException e ) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		Iterator<Integer> it = nShips.iterator();
+		int x = 4;
+		while(it.hasNext()) {
+			Integer ships = it.next();
+			int nBoats = ships.intValue();
+			boolean winUser = user.Shot(boardToTest, 1, x, 1);
+			assertEquals(nBoats, boardToTest.countShip());
+			x--;
+		}
+		
+	}
+	
+	@Test
+	public void boatsAliveforUser()  {
+		
+		
+		char [][] table = new char[5][5];
+		table = boardToTest.getBoard();
+		
+		
+		boardBoatsAlive.setMockBoard(mockBoardCPU.getMockCountBoatsAliveUser(table));
+		
+		ArrayList<Integer> nShips = new ArrayList<Integer>();
+		
+		
+		try {
+			
+			BufferedReader reader = new BufferedReader( new FileReader("../barcosCpuVivos.txt"));
+			String line = reader.readLine();
+			while(line != null) {
+				
+				nShips.add(Integer.parseInt(line));	
+				line = reader.readLine();
+			}
+		
+			reader.close();
+		}catch (IOException e ) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		Iterator<Integer> it = nShips.iterator();
+		int Coordx = 4;
+		while(it.hasNext()) {
+			Integer ships = it.next();
+			int nBoats = ships.intValue();
+			boolean winComputer = cpu.Shot(boardBoatsAlive, 2, Coordx, 0);
+			assertEquals(nBoats, boardBoatsAlive.countShip());
+			Coordx--;
+		}
+		
+	}
+	
 
 }
 
